@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
-/* Analyzes strength of user-entered password based on common criteria
-   Provides suggestions for improvement
+/*
+ * Analyzes the strength of a user-entered password.
+ * Evaluates the password against common security criteria.
+ * and provides suggestions for improvement.
  */
 public class PasswordAnalyzer {
     private Scanner sc = new Scanner(System.in);
@@ -12,12 +14,10 @@ public class PasswordAnalyzer {
     private boolean hasSpecial = false;
     private int score;
 
-    /* Stars password analysis process
-       Reads user input,analyzes password,calculates strength and displays suggestion
+    /* Stars password analysis process.
+       Reads user input,analyzes password,calculates strength and displays suggestion.
      */
     public void startAnalysis() {
-        System.out.println("====== PASSWORD STRENGTH ANALYZER ======");
-        System.out.println();
         resetAnalysis();
         readPassword();
         analyzePassword();
@@ -26,7 +26,7 @@ public class PasswordAnalyzer {
         printSuggestions();
     }
 
-    // resets analysis before checking a new password
+    // Resets analysis before checking a new password.
     private void resetAnalysis() {
         hasUpperCase = false;
         hasLowerCase = false;
@@ -36,12 +36,19 @@ public class PasswordAnalyzer {
     }
 
     private void readPassword() {
+        System.out.println();
+        System.out.println("=================================================");
+        System.out.println("               PASSWORD ANALYSIS                 ");
+        System.out.println("=================================================");
+        System.out.println();
         System.out.print("Enter Password: ");
         password = sc.nextLine();
     }
 
     private void analyzePassword() {
-        // examine each character to identify different password criteria
+        // Checks each character to determine whether the password
+        // contains uppercase letters, lowercase letters,
+        // digits, and special characters.
         for (char c : password.toCharArray()) {
             if (Character.isUpperCase(c)) {
                 hasUpperCase = true;
@@ -55,7 +62,7 @@ public class PasswordAnalyzer {
         }
     }
 
-    // calculates score based on security criteria satisfied
+    // Calculates score based on security criteria satisfied.
     private void calculateScore() {
         score = 0;
         if (hasUpperCase)
@@ -73,7 +80,7 @@ public class PasswordAnalyzer {
 
     private void printResults() {
         System.out.println();
-        System.out.println("------ Password Analysis ------");
+        System.out.println("-------------- ANALYSIS RESULTS -----------------");
         System.out.println();
         if (score <= 2) {
             System.out.println("Password Score: " + score + "/5");
@@ -87,11 +94,13 @@ public class PasswordAnalyzer {
         }
     }
 
-    // displays suggestions for improving password strength
+    // Displays suggestions for improving password strength.
     private void printSuggestions() {
         if (score == 5) {
             System.out.println();
             System.out.println("Excellent! Your password meets all the basic strength requirements.");
+            System.out.println();
+            System.out.println("-------------------------------------------------");
         } else {
             System.out.println("\nSuggestions: ");
             if (!hasUpperCase)
@@ -104,6 +113,8 @@ public class PasswordAnalyzer {
                 System.out.println("- Add at least one special character (!, @, #, ...).");
             if (password.length() < 8)
                 System.out.println("- Increase password length to at least 8 characters.");
+            System.out.println();
+            System.out.println("-------------------------------------------------");
         }
     }
 }
