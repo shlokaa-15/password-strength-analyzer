@@ -1,6 +1,6 @@
 # 🔐 Password Strength Analyzer
 
-A simple Java console application that analyzes the strength of a password based on common security rules and provides suggestions for improvement.
+A Java console application that analyzes the strength of user-entered passwords and generates secure random passwords. The project is built using Object-Oriented Programming (OOP) principles with a clean, modular architecture.
 
 ---
 
@@ -14,6 +14,9 @@ A simple Java console application that analyzes the strength of a password based
 - Check minimum password length
 - Generate a password score
 - Provide improvement suggestions
+- Generate secure random passwords of a user-specified length
+- Randomize generated passwords using the Fisher-Yates Shuffle algorithm
+- Menu-driven console interface
 
 ---
 
@@ -22,6 +25,7 @@ A simple Java console application that analyzes the strength of a password based
 - Java
 - Object-Oriented Programming (OOP)
 - IntelliJ IDEA
+- Git & GitHub
 
 ---
 
@@ -30,7 +34,9 @@ A simple Java console application that analyzes the strength of a password based
 ```
 src/
 ├── Main.java
-└── PasswordAnalyzer.java
+├── Menu.java
+├── PasswordAnalyzer.java
+└── PasswordGenerator.java
 ```
 
 ---
@@ -38,27 +44,58 @@ src/
 ## Sample Output
 
 ```
-====== PASSWORD STRENGTH ANALYZER ======
+Main Menu
+=================================================
+           PASSWORD STRENGTH ANALYZER
+=================================================
+
+1. Analyze Password
+2. Generate Password
+0. Exit
+
+Enter choice: 1
+
+=================================================
+               PASSWORD ANALYSIS
+=================================================
 
 Enter Password: hello123
 
-Password Score : 3/5
-Strength       : Moderate
+-------------- ANALYSIS RESULTS -----------------
 
------- Password Analysis ------
+Password Score: 3/5
+Strength      : Moderate
 
-Suggestions: 
+Suggestions:
 - Add at least one uppercase letter (A-Z).
-- Add at least one special character (!,@,#,...).
+- Add at least one special character (!, @, #, ...).
+
+-------------------------------------------------
+1. Analyze Password
+2. Generate Password
+0. Exit
+
+Enter choice: 2
+=================================================
+               PASSWORD GENERATOR
+=================================================
+
+Enter desired password length (minimum 8): 12
+
+------------- GENERATED PASSWORD ----------------
+
+Generated Password: @K7m!Pq2#XaL
+
+-------------------------------------------------
 ```
 
 ---
 
 ## Future Improvements
 
-- Generate secure passwords
 - Detect commonly used passwords
 - Store password history
+- Export analysis results to file
 - MySQL integration
 
 ---
